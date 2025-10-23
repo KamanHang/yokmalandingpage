@@ -1,0 +1,15 @@
+@keyframes zoomLoop {
+  0% {
+    transform: scale(1);       /* normal */
+  }
+  50% {
+    transform: scale(1.05);     /* slightly zoomed in */
+  }
+  100% {
+    transform: scale(1);       /* back to normal */
+  }
+}
+
+.animate-zoom-loop {
+  animation: zoomLoop 10s ease-in-out infinite; /* 10s loop, smooth easing */
+}
