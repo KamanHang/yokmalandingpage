@@ -1,0 +1,34 @@
+<section class="w-full flex justify-around items-center cursor-pointer bg-[#FFFEFA] py-[0.81rem] gap-[0.75rem]">
+  <div class="bg-white flex items-center px-[0.4375rem] py-[0.75rem] border border-[#F5F5F5] rounded-[1.8125rem] h-[3.125rem]">
+    @if (menuItems().length > 0) {
+      <ul class="flex justify-start items-center gap-2">
+        @for (item of menuItems(); track item.label) {
+          <li
+            class="flex items-center justify-center gap-2
+                   h-[2.25rem] px-[0.875rem] py-[0.5rem] rounded-full
+                   text-[15px] font-medium text-[#0b1f1e]
+                   transition-colors duration-200
+                   hover:bg-gray-100
+                   [&.active-link]:bg-[#481E14]
+                   [&.active-link]:text-white
+                   [&.active-link>i]:text-white"
+            [routerLink]="item.route"
+            routerLinkActive="active-link"
+            [routerLinkActiveOptions]="{ exact: true }"
+            [ngClass]="{ 'active-link': activeRoute() === item.route }"
+            (click)="setActive(item.route!)"
+          >
+            <span class="pointer-events-none">{{ item.label }}</span>
+          </li>
+        }
+      </ul>
+    }
+  </div>
+
+
+  <div>
+    <button class="bg-[#481E14] h-[2.25rem] px-[0.875rem] py-[0.5rem] rounded-full ">
+      <p class="text-white text-sm font-medium">Make Appointment</p>
+    </button>
+  </div>
+</section>
